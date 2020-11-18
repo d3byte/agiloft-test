@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tasks App</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Client side single page �Tasks� app">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body { padding: 2em }
+      #wrapper { max-width: 800px }
+    </style>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <header><h1 class="mb-5">Tasks App</h1></header>
+    <main role="main">
+      <section id="wrapper">
+        <label>Select priority</label>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <select class="custom-select add-task-priority">
+              <option value="low" selected>Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <input type="text" class="app-task-textbox form-control" placeholder="Type something in here">
+          <div class="input-group-append">
+            <button class="app-add-task-button btn btn-primary rounded-right" type="button">Add Task</button>
+          </div>
+          <button class="app-request-tasks-button btn btn-link ml-2" type="button">Request New Tasks</button>
+        </div>
+        <h2 class="font-weight-light mb-4">Current Tasks</h2>
+        <form class="filter-sort-form mb-4">
+          <div class="form-row">
+            <div class="col-3">
+              <label>Filter by priority</label>
+              <select class="custom-select filter-by-priority">
+                <option value="" selected>None</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <label>Sort by priory</label>
+              <select class="custom-select sort-by-priority">
+                <option value="" selected>None</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="app-tasks-wrapper mb-3">
+            Loading...
+        </div>
+        <button type="button" class="app-complete-task-button btn btn-primary">Complete Tasks</button>
+        <button type="button" class="app-delete-task-button btn btn-outline-danger">Delete Tasks</button>
+        <button type="button" class="app-save-tasks-button btn btn-success float-right">Save</button>
+        <div class="app-save-notify alert alert-success mt-3" style="display: none">
+          Saved.
+        </div>
+      </section>
+    </main>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/tasks.model.js"></script>
+    <script src="assets/js/tasks.view.js"></script>
+    <script src="assets/js/tasks.controller.js"></script>
+    <script>
+      const model = new TaskModel([]);
+      const view = new TaskView(model);
+      const controller = new TaskController(model, view);
+    </script>
+  </body>
+</html>
