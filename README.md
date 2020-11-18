@@ -1,5 +1,8 @@
 # Sergey Savtyra`s coding test
 
+I saved the compatibility with Internet Explorer and other legacy browser and did not
+use any extra frameworks and libraries for solving the test.
+
 ## Time taken
 
 * Development – 1.5h
